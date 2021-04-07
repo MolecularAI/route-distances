@@ -15,12 +15,7 @@ def test_validate_only_mols():
     dict_ = {
         "smiles": "CCC",
         "type": "mol",
-        "children": [
-            {
-                "smiles": "CCC",
-                "type": "mol"
-            }
-        ]
+        "children": [{"smiles": "CCC", "type": "mol"}],
     }
     with pytest.raises(ValueError, match="string does not match regex"):
         validate_dict(dict_)
