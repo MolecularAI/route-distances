@@ -1,5 +1,10 @@
 # route-distances
 
+[![License](https://img.shields.io/github/license/MolecularAI/route-distances)](https://github.com/MolecularAI/route-distances/blob/master/LICENSE)
+[![Tests](https://github.com/MolecularAI/route-distances/workflows/tests/badge.svg)](https://github.com/MolecularAI/route-distances/actions?workflow=tests)
+[![codecov](https://codecov.io/gh/MolecularAI/route-distances/branch/master/graph/badge.svg)](https://codecov.io/gh/MolecularAI/route-distances)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/python/black) 
+
 This repository contains tools and routines to calculate distances between synthesis routes and to cluster them.
 
 This repository is mainly intended for developers and researchers. If you want a fully functional tool that is easy to use,
