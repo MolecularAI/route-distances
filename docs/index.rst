@@ -31,4 +31,5 @@ cluster labels for each route and the timings of the calculation, respectively.
 .. toctree::
     :hidden:
 
+    python
     route_distances
