@@ -6,7 +6,7 @@ authors = ["Genheden, Samuel <samuel.genheden@astrazeneca.com>"]
 license = "MIT"
 
 [tool.poetry.scripts]
-calc_aizynthfinder_distances = "route_distances.tools.calc_aizynthfinder_distances:main"
+cluster_aizynth_output = "route_distances.tools.cluster_aizynth_output:main"
 
 [tool.poetry.dependencies]
 python = ">=3.7,<3.9"
