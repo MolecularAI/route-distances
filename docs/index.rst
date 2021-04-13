@@ -9,7 +9,7 @@ There is one command line tool to process AiZynthFinder output:
 
 .. code-block:: bash
 
-    calc_aizynthfinder_distances.py --files finder_output1.hdf5 finder_output2.hdf5 --output finder_distances.hdf5
+    cluster_aizynth_output --files finder_output1.hdf5 finder_output2.hdf5 --output finder_distances.hdf5
 
 
 This will add a column to table in the merged ``hdf5`` file called ``distance_matrix`` with the tree edit distances, and
@@ -19,7 +19,7 @@ To cluster the routes as well add the ``--ncluster`` flag
 
 .. code-block:: bash
 
-    calc_aizynthfinder_distances.py --files finder_output1.hdf5 finder_output2.hdf5 --output finder_distances.hdf5 --nclusters 0
+    cluster_aizynth_output --files finder_output1.hdf5 finder_output2.hdf5 --output finder_distances.hdf5 --nclusters 0
 
 Giving 0 as the number of clusters will trigger automatic optimization of the number of clusters.
 Two columns will be added to the table: ``cluster_labels`` and ``cluster_time`` holding the

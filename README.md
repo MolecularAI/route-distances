@@ -34,10 +34,10 @@ the `route_distances` package is now installed in editable mode.
 
 ## Usage
 
-The tool will install the `calc_aizynthfinder_distances` that is used
+The tool will install the `cluster_aizynth_output` that is used
 to calculate distances and clusters for AiZynthFinder output
 
-    calc_aizynthfinder_distances --files finder_output1.hdf5 finder_output2.hdf5 --output finder_distances.hdf5 --nclusters 0
+    cluster_aizynth_output --files finder_output1.hdf5 finder_output2.hdf5 --output finder_distances.hdf5 --nclusters 0
     
 This will perform TED calculations and add a column `distance_matrix` with the distances and column `cluster_labels` with the cluster labels for each route to the output file.
 
