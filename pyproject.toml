@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "route-distances"
-version = "0.0.1"
+version = "0.0.2"
 description = "Models for calculating distances between synthesis routes"
 authors = ["Genheden, Samuel <samuel.genheden@astrazeneca.com>"]
 license = "MIT"
