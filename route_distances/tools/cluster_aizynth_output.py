@@ -19,6 +19,7 @@ def _get_args() -> argparse.Namespace:
         "Tool to calculate pairwise distances for AiZynthFinder output"
     )
     parser.add_argument("--files", nargs="+", required=True)
+    parser.add_argument("--model", required=True)
     parser.add_argument("--only_clustering", action="store_true", default=False)
     parser.add_argument("--nclusters", type=int, default=None)
     parser.add_argument("--output", default="finder_output_dist.hdf5")
@@ -69,8 +70,13 @@ def main() -> None:
 
     if args.only_clustering:
         calculator = None
-    else:
+    elif args.model == "ted":
         calculator = route_distances_calculator("ted", content="both")
+    else:
+        calculator = route_distances_calculator(
+            "lstm",
+            model_path=args.model,
+        )
 
     if not args.only_clustering:
         func = functools.partial(

@@ -1,0 +1,12 @@
+""" Module with defaults used in more than one place """
+FP_SIZE = 2048
+LSTM_SIZE = 1024
+DROPOUT_PROB = 0.4
+LEARNING_RATE = 0.001
+WEIGHT_DECAY = 0.001
+
+SPLIT_PART = 0.1
+SPLIT_SEED = 1984
+
+BATCH_SIZE = 128
+EPOCHS = 50
