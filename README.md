@@ -37,11 +37,18 @@ the `route_distances` package is now installed in editable mode.
 The tool will install the `cluster_aizynth_output` that is used
 to calculate distances and clusters for AiZynthFinder output
 
-    cluster_aizynth_output --files finder_output1.hdf5 finder_output2.hdf5 --output finder_distances.hdf5 --nclusters 0
+    cluster_aizynth_output --files finder_output1.hdf5 finder_output2.hdf5 --output finder_distances.hdf5 --nclusters 0 --model ted
     
 This will perform TED calculations and add a column `distance_matrix` with the distances and column `cluster_labels` with the cluster labels for each route to the output file.
 
-For further details, please consult the documentation.
+
+An ML model for fast predictions can be found here: [https://zenodo.org/record/4925903](https://zenodo.org/record/4925903).
+
+This can be used with the `cluster_aizynth_output` tool
+
+    cluster_aizynth_output --files finder_output1.hdf5 finder_output2.hdf5 --output finder_distances.hdf5 --nclusters 0 --model chembl_10k_route_distance_model.ckpt
+
+For further details, please consult the [documentation](https://molecularai.github.io/route-distances/).
 
 
 ## Development
@@ -94,3 +101,4 @@ The software is licensed under the MIT license (see LICENSE file), and is free a
 ## References
 
 1. Genheden S, Engkvist O, Bjerrum E (2020) Clustering of synthetic routes using tree edit distance. ChemRxiv. Preprint. https://doi.org/10.26434/chemrxiv.13372475.v1 
+2. Genheden S, Engkvist O, Bjerrum E (2021) Fast prediction of distances between synthetic routes with deep learning. ChemRxiv. Preprint. https://doi.org/10.26434/chemrxiv.14778150.v1
