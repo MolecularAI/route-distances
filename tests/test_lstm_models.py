@@ -63,13 +63,15 @@ def test_distance_calculator_call(
     assert dist_mat[1, 1] == 0.0
 
 
-def test_dummy_distance_model(shared_datadir):
+def test_dummy_distance_model(shared_datadir, mocker):
     pickle_path = str(shared_datadir / "test_data.pickle")
     with open(pickle_path, "rb") as fileobj:
         data = pickle.load(fileobj)
     dataset = InMemoryTreeDataset(**data)
     batch = collate_batch([batch for batch in dataset])
     model = RouteDistanceModel(fp_size=32, lstm_size=16, dropout_prob=0.0)
+    model.trainer = mocker.MagicMock()
+    model._current_fx_name = "training_step"
 
     assert model.forward(collate_trees(data["trees"])).shape[0] == 45
     assert model.training_step(batch, None).item() == pytest.approx(12.50, rel=1e-2)

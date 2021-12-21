@@ -4,6 +4,7 @@ from typing import List, Tuple
 import torch
 import pytorch_lightning as lightning
 from treelstm import TreeLSTM as TreeLSTMBase
+from torchmetrics import MeanAbsoluteError, R2Score
 
 import route_distances.lstm.defaults as defaults
 from route_distances.lstm.utils import accumulate_stats
@@ -67,8 +68,8 @@ class RouteDistanceModel(lightning.LightningModule):
         self._tree_lstm = _TreeLstmWithPreCompression(fp_size, lstm_size, dropout_prob)
         self._pdist = torch.nn.PairwiseDistance(p=2)
         self._loss_func = torch.nn.MSELoss()
-        self._mae = lightning.metrics.MeanAbsoluteError()
-        self._r2 = lightning.metrics.R2Score()
+        self._mae = MeanAbsoluteError()
+        self._r2 = R2Score()
         self._lr = learning_rate
         self._weight_decay = weight_decay
 
