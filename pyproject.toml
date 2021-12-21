@@ -43,5 +43,5 @@ min-public-methods = 0
 disable = "W1201, W1203, R0401, W0707, W0221, W0603, R0801, typecheck"
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = ["setuptools", "poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
