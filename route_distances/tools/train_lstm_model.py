@@ -66,7 +66,7 @@ def main(seed=None) -> None:
     )
     trainer.fit(model, datamodule=data)
 
-    ret = trainer.test()
+    ret = trainer.test(datamodule=data)
     print("=== Test results === ")
     accum = accumulate_stats(ret)
     for key, value in accum.items():
