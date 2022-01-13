@@ -17,6 +17,7 @@ jobs:
             bash -s -- --batch
         conda env create -f conda-env.yml
         conda run --name routes-env poetry install
+        pip install "setuptools==59.5.0"
         conda run --name routes-env inv full-tests
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
