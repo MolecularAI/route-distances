@@ -7,15 +7,17 @@ from __future__ import annotations
 import itertools
 import math
 from copy import deepcopy
-from typing import List, Union, Iterable, Tuple, Dict, Any
+from typing import List, Union, Iterable, Tuple, Callable, Optional
 from logging import getLogger
 
 import numpy as np
-from rdkit import Chem, DataStructs
-from rdkit.Chem import AllChem
 from apted import APTED as Apted
 
-from route_distances.ted.utils import TreeContent, AptedConfig
+from route_distances.ted.utils import (
+    TreeContent,
+    AptedConfig,
+    StandardFingerprintFactory,
+)
 from route_distances.validation import validate_dict
 from route_distances.utils.type_utils import StrDict
 
@@ -30,6 +32,8 @@ class ReactionTreeWrapper:
     :param reaction_tree: the reaction tree to wrap
     :param content: the content of the route to consider in the distance calculation
     :param exhaustive_limit: if the number of possible ordered trees are below this limit create them all
+    :param fp_factory: the factory of the fingerprint, Morgan fingerprint for molecules and reactions by default
+    :param dist_func: the distance function to use when renaming nodes
     """
 
     _index_permutations = {
@@ -41,8 +45,8 @@ class ReactionTreeWrapper:
         reaction_tree: StrDict,
         content: Union[str, TreeContent] = TreeContent.MOLECULES,
         exhaustive_limit: int = 20,
-        fp_radius: int = 2,
-        fp_nbits: int = 2048,
+        fp_factory: Callable[[StrDict, Optional[StrDict]], None] = None,
+        dist_func: Callable[[np.ndarray, np.ndarray], float] = None,
     ) -> None:
         validate_dict(reaction_tree)
         single_node_tree = not bool(reaction_tree.get("children", []))
@@ -56,11 +60,11 @@ class ReactionTreeWrapper:
         self._content = TreeContent(content)
         self._base_tree = deepcopy(reaction_tree)
 
-        self._fp_params = (fp_radius, fp_nbits)
-        self._add_mol_fingerprints(self._base_tree)
+        self._fp_factory = fp_factory or StandardFingerprintFactory()
+        self._add_fingerprints(self._base_tree)
 
         if self._content != TreeContent.MOLECULES and not single_node_tree:
-            self._add_rxn_fingerprint(self._base_tree["children"][0], self._base_tree)
+            self._add_fingerprints(self._base_tree["children"][0], self._base_tree)
 
         if self._content == TreeContent.MOLECULES:
             self._base_tree = self._remove_children_nodes(self._base_tree)
@@ -77,6 +81,8 @@ class ReactionTreeWrapper:
             self._create_all_trees()
         else:
             self._trees.append(self._base_tree)
+
+        self._dist_func = dist_func
 
     @property
     def info(self) -> StrDict:
@@ -158,31 +164,24 @@ class ReactionTreeWrapper:
         :param other: another tree to calculate distance to
         :return: the distance
         """
-        config = AptedConfig(sort_children=True)
+        config = AptedConfig(sort_children=True, dist_func=self._dist_func)
         return Apted(self.first_tree, other.first_tree, config).compute_edit_distance()
 
-    def _add_mol_fingerprints(self, tree: Dict[str, Any]) -> None:
-        mol = Chem.MolFromSmiles(tree["smiles"])
-        rd_fp = AllChem.GetMorganFingerprintAsBitVect(mol, *self._fp_params)
-        tree["fingerprint"] = np.zeros((1,), dtype=np.int8)
-        DataStructs.ConvertToNumpyArray(rd_fp, tree["fingerprint"])
+    def _add_fingerprints(self, tree: StrDict, parent: StrDict = None) -> None:
+        if "fingerprint" not in tree:
+            try:
+                self._fp_factory(tree, parent)
+            except ValueError:
+                pass
+        if "fingerprint" not in tree:
+            tree["fingerprint"] = []
         tree["sort_key"] = "".join(f"{digit}" for digit in tree["fingerprint"])
         if "children" not in tree:
             tree["children"] = []
 
         for child in tree["children"]:
             for grandchild in child["children"]:
-                self._add_mol_fingerprints(grandchild)
-
-    def _add_rxn_fingerprint(self, node: StrDict, parent: StrDict) -> None:
-        node["fingerprint"] = parent["fingerprint"].copy()
-        for reactant in node["children"]:
-            node["fingerprint"] -= reactant["fingerprint"]
-        node["sort_key"] = "".join(f"{digit}" for digit in node["fingerprint"])
-
-        for child in node["children"]:
-            for grandchild in child.get("children", []):
-                self._add_rxn_fingerprint(grandchild, child)
+                self._add_fingerprints(grandchild, child)
 
     def _create_all_trees(self) -> None:
         self._trees = []
@@ -212,7 +211,7 @@ class ReactionTreeWrapper:
         self._logger.debug(
             f"APTED: Exhaustive search. {len(self.trees)} {len(other.trees)}"
         )
-        config = AptedConfig(randomize=False)
+        config = AptedConfig(randomize=False, dist_func=self._dist_func)
         for tree1, tree2 in itertools.product(self.trees, other.trees):
             yield Apted(tree1, tree2, config).compute_edit_distance()
 
@@ -222,10 +221,10 @@ class ReactionTreeWrapper:
         self._logger.debug(
             f"APTED: Heuristic search. {len(self.trees)} {len(other.trees)}"
         )
-        config = AptedConfig(randomize=False)
+        config = AptedConfig(randomize=False, dist_func=self._dist_func)
         yield Apted(self.first_tree, other.first_tree, config).compute_edit_distance()
 
-        config = AptedConfig(randomize=True)
+        config = AptedConfig(randomize=True, dist_func=self._dist_func)
         for _ in range(ntimes):
             yield Apted(
                 self.first_tree, other.first_tree, config
@@ -244,7 +243,7 @@ class ReactionTreeWrapper:
             first_wrapper = other
             second_wrapper = self
 
-        config = AptedConfig(randomize=False)
+        config = AptedConfig(randomize=False, dist_func=self._dist_func)
         for tree1 in first_wrapper.trees:
             yield Apted(
                 tree1, second_wrapper.first_tree, config
@@ -279,7 +278,8 @@ class ReactionTreeWrapper:
     def _make_base_copy(node: StrDict) -> StrDict:
         return {
             "type": node["type"],
-            "smiles": node["smiles"],
+            "smiles": node.get("smiles", ""),
+            "metadata": node.get("metadata"),
             "fingerprint": node["fingerprint"],
             "sort_key": node["sort_key"],
             "children": [],

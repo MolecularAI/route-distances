@@ -11,6 +11,8 @@ def load_reaction_tree(shared_datadir):
             trees = json.load(fileobj)
         if isinstance(trees, dict):
             return trees
+        elif index == -1:
+            return trees
         else:
             return trees[index]
 

@@ -100,5 +100,5 @@ The software is licensed under the MIT license (see LICENSE file), and is free a
 
 ## References
 
-1. Genheden S, Engkvist O, Bjerrum E (2020) Clustering of synthetic routes using tree edit distance. ChemRxiv. Preprint. https://doi.org/10.26434/chemrxiv.13372475.v1 
-2. Genheden S, Engkvist O, Bjerrum E (2021) Fast prediction of distances between synthetic routes with deep learning. ChemRxiv. Preprint. https://doi.org/10.26434/chemrxiv.14778150.v1
+1. Genheden S, Engkvist O, Bjerrum E (2021) Clustering of synthetic routes using tree edit distance. J. Chem. Inf. Model. 61:3899–3907 [https://doi.org/10.1021/acs.jcim.1c00232](https://doi.org/10.1021/acs.jcim.1c00232)
+2. Genheden S, Engkvist O, Bjerrum E (2022) Fast prediction of distances between synthetic routes with deep learning. Mach. Learn. Sci. Technol. 3:015018 [https://doi.org/10.1088/2632-2153/ac4a91](https://doi.org/10.1088/2632-2153/ac4a91)

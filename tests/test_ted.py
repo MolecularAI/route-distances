@@ -5,6 +5,7 @@ import pytest
 from route_distances.ted.utils import (
     AptedConfig,
     TreeContent,
+    StandardFingerprintFactory,
 )
 from route_distances.ted.reactiontree import ReactionTreeWrapper
 from route_distances.ted.distances import distance_matrix
@@ -20,6 +21,26 @@ def collect_smiles(tree, query_type, smiles_list):
 node1 = {"type": "mol", "fingerprint": [0, 1, 0], "children": ["A", "B", "C"]}
 
 node2 = {"type": "mol", "fingerprint": [1, 1, 0]}
+
+example_tree = {
+    "type": "mol",
+    "smiles": "Cc1ccc2nc3ccccc3c(Nc3ccc(NC(=S)Nc4ccccc4)cc3)c2c1",
+    "children": [
+        {
+            "type": "reaction",
+            "children": [
+                {
+                    "type": "mol",
+                    "smiles": "Cc1ccc2nc3ccccc3c(Cl)c2c1",
+                },
+                {
+                    "type": "mol",
+                    "smiles": "Nc1ccc(NC(=S)Nc2ccccc2)cc1",
+                },
+            ],
+        }
+    ],
+}
 
 
 def test_rename_cost_different_types():
@@ -290,3 +311,31 @@ def test_distance_matrix_timeout(load_reaction_tree):
 
     with pytest.raises(ValueError):
         distance_matrix(reaction_trees, content="molecules", timeout=0)
+
+
+def test_fingerprint_calculations():
+    wrapper = ReactionTreeWrapper(
+        example_tree, content="both", fp_factory=StandardFingerprintFactory(nbits=128)
+    )
+
+    fp = wrapper.first_tree["sort_key"]
+    mol1 = "1000010000000000000010001000100101000101100000010000010000100001"
+    mol2 = "1100000001110110011000100010000001001000000100100000110000100100"
+    assert fp == mol1 + mol2
+
+    fp = wrapper.first_tree["children"][0]["sort_key"]
+    rxn1 = "00000-1000000-1000-100-2000000000000000000000000000-10-20000000000000-1"
+    rxn2 = "-10000000001000100-10000-100-10000000000-10-1000000000000-11000-10000100"
+    assert fp == rxn1 + rxn2
+
+
+def test_custom_fingerprint_calculations():
+    def factory(tree, parent):
+        if tree["type"] != "reaction":
+            return
+        tree["fingerprint"] = [1, 2, 3, 4]
+
+    wrapper = ReactionTreeWrapper(example_tree, content="both", fp_factory=factory)
+
+    assert wrapper.first_tree["sort_key"] == ""
+    assert wrapper.first_tree["children"][0]["sort_key"] == "1234"

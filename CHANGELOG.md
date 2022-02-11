@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Version 1.0.0 - 2022-02-11
+
+- Generalization of featurization for TED calculations
+- Utility routines for route property calculations
+
 ## Version 0.2.1 - 2021-12-21
 
 ### Trivial changes
