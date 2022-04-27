@@ -3,6 +3,6 @@ channels:
   - https://conda.anaconda.org/conda-forge
   - defaults
 dependencies:
-  - python>=3.6,<3.9
+  - python>=3.6,<3.10
   - rdkit=>2019.09.1
   - poetry>=1.1.4,<2.0

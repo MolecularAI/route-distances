@@ -11,14 +11,14 @@ prepare_aizynthfinder_output = "route_distances.tools.prepare_aizynthfinder_outp
 cluster_aizynth_output = "route_distances.tools.cluster_aizynth_output:main"
 
 [tool.poetry.dependencies]
-python = ">=3.7,<3.9"
+python = ">=3.7,<3.10"
 torch = "^1.7.1"
 pytorch-tree-lstm = "^0.1.3"
-pytorch-lightning = "^1.5.8"
+pytorch-lightning = "^1.6.0"
 optuna = "^2.5.0"
 tables = "^3.6.0"
 apted = "^1.0.3"
-scikit-learn = "^0.24.0"
+scikit-learn = ">0.21.0"
 pydantic = "^1.8.0"
 python-dateutil = "^2.8.2"
 

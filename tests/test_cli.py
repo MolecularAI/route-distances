@@ -172,7 +172,7 @@ def test_training_simple(
     # Action
     training_main(seed=1984)
 
-    checkpoints = glob.glob(f"{tmp_path}/route-dist_route-dist/*/checkpoints/last.ckpt")
+    checkpoints = glob.glob(f"{tmp_path}/route-dist/*/checkpoints/last.ckpt")
     assert len(checkpoints) == 1
 
     model1 = distances_calculator(checkpoints[0])
