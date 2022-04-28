@@ -8,7 +8,7 @@ from route_distances.utils.type_utils import StrDict
 
 
 def accumulate_stats(stats: List[Dict[str, float]]) -> Dict[str, float]:
-    """ Accumulate statistics from a list of statistics"""
+    """Accumulate statistics from a list of statistics"""
     accum: StrDict = defaultdict(float)
     for output in stats:
         for key, value in output.items():
@@ -17,7 +17,7 @@ def accumulate_stats(stats: List[Dict[str, float]]) -> Dict[str, float]:
 
 
 def add_node_index(node: StrDict, n: int = 0) -> int:
-    """ Add an index to the node and all its children """
+    """Add an index to the node and all its children"""
     node["index"] = n
     for child in node.get("children", []):
         n += 1

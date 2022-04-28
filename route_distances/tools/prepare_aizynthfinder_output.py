@@ -28,7 +28,7 @@ def _similarity(idx1, idx2, labels):
 
 
 def main():
-    """ Entry-point for CLI tool """
+    """Entry-point for CLI tool"""
     args = _get_args()
 
     offset = 0

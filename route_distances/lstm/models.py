@@ -108,7 +108,7 @@ class RouteDistanceModel(lightning.LightningModule):
         return self._val_and_test_step(batch, "val")
 
     def validation_epoch_end(self, outputs: List[StrDict]) -> None:
-        """ Log the average validation metrics """
+        """Log the average validation metrics"""
         self._log_average_metrics(outputs)
 
     def test_step(self, batch: StrDict, _) -> StrDict:
@@ -122,13 +122,13 @@ class RouteDistanceModel(lightning.LightningModule):
         return self._val_and_test_step(batch, "test")
 
     def test_epoch_end(self, outputs: List[StrDict]) -> None:
-        """ Log the average test metrics """
+        """Log the average test metrics"""
         self._log_average_metrics(outputs)
 
     def configure_optimizers(
         self,
     ) -> Tuple[List[torch.optim.Adam], List[StrDict]]:
-        """ Setup the Adam optimiser and scheduler """
+        """Setup the Adam optimiser and scheduler"""
         optim = torch.optim.Adam(
             self.parameters(), lr=self._lr, weight_decay=self._weight_decay
         )

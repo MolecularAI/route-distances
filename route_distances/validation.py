@@ -7,7 +7,7 @@ from route_distances.utils.type_utils import StrDict
 
 
 class MoleculeNode(pydantic.BaseModel):
-    """ Node representing a molecule """
+    """Node representing a molecule"""
 
     smiles: str
     type: pydantic.constr(regex=r"^mol$")
@@ -15,7 +15,7 @@ class MoleculeNode(pydantic.BaseModel):
 
 
 class ReactionNode(pydantic.BaseModel):
-    """ Node representing a reaction """
+    """Node representing a reaction"""
 
     type: pydantic.constr(regex=r"^reaction$")
     children: List[MoleculeNode]

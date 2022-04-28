@@ -24,7 +24,7 @@ class ClusteringHelper:
 
     @property
     def labels(self) -> np.ndarray:
-        """ Return the cluster labels """
+        """Return the cluster labels"""
         if not self._model:
             raise ValueError("Labels are not defined yet. Run clustering first")
         return self._model.labels_

@@ -30,7 +30,7 @@ def _get_args():
 
 
 def main(seed=None) -> None:
-    """ Entry-point for CLI tool """
+    """Entry-point for CLI tool"""
     args = _get_args()
     print(str(args).replace("Namespace", "Arguments used = "))
 

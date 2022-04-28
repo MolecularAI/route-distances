@@ -3,7 +3,9 @@ import functools
 from typing import Any, List
 
 from route_distances.ted.distances import distance_matrix as ted_distance_matrix
-from route_distances.lstm.inference import distances_calculator as lstm_distances_calculator
+from route_distances.lstm.inference import (
+    distances_calculator as lstm_distances_calculator,
+)
 from route_distances.utils.type_utils import RouteDistancesCalculator, StrDict
 
 

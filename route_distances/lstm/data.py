@@ -14,7 +14,7 @@ _PairType = Tuple[Union[int, float], ...]
 
 
 class InMemoryTreeDataset(Dataset):
-    """ Represent an in-memory set of trees, and pairwise distances """
+    """Represent an in-memory set of trees, and pairwise distances"""
 
     def __init__(self, pairs, trees):
         self.trees = trees
@@ -34,7 +34,7 @@ class InMemoryTreeDataset(Dataset):
 
 
 class TreeDataModule(LightningDataModule):
-    """ Represent a PyTorch Lightning datamodule for load and collecting data for model training """
+    """Represent a PyTorch Lightning datamodule for load and collecting data for model training"""
 
     def __init__(
         self,

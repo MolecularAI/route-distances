@@ -38,7 +38,7 @@ def _merge_inputs(filenames: List[str]) -> pd.DataFrame:
         if data is None:
             data = temp_data
         else:
-            data = data.append(temp_data)
+            data = pd.concat([data, temp_data])
     return data
 
 
@@ -75,7 +75,7 @@ def _do_clustering(
 
 
 def main() -> None:
-    """ Entry-point for CLI tool """
+    """Entry-point for CLI tool"""
     args = _get_args()
     tqdm.pandas()
 
