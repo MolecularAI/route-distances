@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## Version 1.0.1 - 2022-04-28
+
+### Trivial changes
+
+- Use newer versions of PyTorch lightning, Sphinx and Black
+- Remove deprecated use of Pandas append function
+
 ## Version 1.0.0 - 2022-02-11
 
 - Generalization of featurization for TED calculations
