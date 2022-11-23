@@ -26,7 +26,7 @@ The tool has been developed on a Linux platform, but the software has been teste
 
 Setup your python environment and then run
 
-    pip install route_distances
+    pip install route-distances
 
 
 ### For developers
