@@ -16,11 +16,20 @@ Before you begin, ensure you have met the following requirements:
 
 * Linux, Windows or macOS platforms are supported - as long as the dependencies are supported on these platforms.
 
-* You have installed [anaconda](https://www.anaconda.com/) or [miniconda](https://docs.conda.io/en/latest/miniconda.html) with python 3.6 to 3.8
+* You have installed [anaconda](https://www.anaconda.com/) or [miniconda](https://docs.conda.io/en/latest/miniconda.html) with python 3.8 to 3.9
 
 The tool has been developed on a Linux platform, but the software has been tested on Windows 10 and macOS Catalina.
 
 ## Installation
+
+### For users
+
+Setup your python environment and then run
+
+    pip install route_distances
+
+
+### For developers
 
 First clone the repository using Git.
 

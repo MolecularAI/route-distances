@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## Version 1.1.0 - 2022-11-23
+
+### Trivial changes
+
+- Use RDKit from pypi
+- Update dependency versions
+
 ## Version 1.0.1 - 2022-04-28
 
 ### Trivial changes

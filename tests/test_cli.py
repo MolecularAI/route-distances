@@ -173,6 +173,7 @@ def test_training_simple(
     training_main(seed=1984)
 
     checkpoints = glob.glob(f"{tmp_path}/route-dist/*/checkpoints/last.ckpt")
+    checkpoints += glob.glob(f"{tmp_path}/tb_logs/route-dist/*/checkpoints/last.ckpt")
     assert len(checkpoints) == 1
 
     model1 = distances_calculator(checkpoints[0])
