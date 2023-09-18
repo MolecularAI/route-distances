@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## Version 1.1.1 - 2023-09-15
+
+### Trivial changes
+
+- Update Python version to >=3.9 and <3.11
+
 ## Version 1.1.0 - 2022-11-23
 
 ### Trivial changes
