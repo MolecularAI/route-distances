@@ -16,7 +16,7 @@ Before you begin, ensure you have met the following requirements:
 
 * Linux, Windows or macOS platforms are supported - as long as the dependencies are supported on these platforms.
 
-* You have installed [anaconda](https://www.anaconda.com/) or [miniconda](https://docs.conda.io/en/latest/miniconda.html) with python 3.8 to 3.9
+* You have installed [anaconda](https://www.anaconda.com/) or [miniconda](https://docs.conda.io/en/latest/miniconda.html) with python 3.9 to 3.11
 
 The tool has been developed on a Linux platform, but the software has been tested on Windows 10 and macOS Catalina.
 
