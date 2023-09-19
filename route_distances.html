@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>route_distances package &#8212; route-distances 1.1.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="route_distances.lstm package" href="route_distances.lstm.html" />
+    <link rel="prev" title="Python interface" href="python.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">route-distances</a></h1>
+
+
+
+<p class="blurb">Routines for calculating route-distances</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="python.html">Python interface</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">route_distances package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="route_distances.lstm.html">route_distances.lstm package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="route_distances.ted.html">route_distances.ted package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="route_distances.tools.html">route_distances.tools package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-route_distances.clustering">route_distances.clustering module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-route_distances.route_distances">route_distances.route_distances module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-route_distances.validation">route_distances.validation module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-route_distances">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="python.html" title="previous chapter">Python interface</a></li>
+      <li>Next: <a href="route_distances.lstm.html" title="next chapter">route_distances.lstm package</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="route-distances-package">
+<h1>route_distances package<a class="headerlink" href="#route-distances-package" title="Permalink to this headline">¶</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="route_distances.lstm.html">route_distances.lstm package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="route_distances.lstm.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="route_distances.lstm.html#module-route_distances.lstm.data">route_distances.lstm.data module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="route_distances.lstm.html#module-route_distances.lstm.defaults">route_distances.lstm.defaults module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="route_distances.lstm.html#module-route_distances.lstm.features">route_distances.lstm.features module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="route_distances.lstm.html#module-route_distances.lstm.inference">route_distances.lstm.inference module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="route_distances.lstm.html#module-route_distances.lstm.models">route_distances.lstm.models module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="route_distances.lstm.html#module-route_distances.lstm.optim">route_distances.lstm.optim module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="route_distances.lstm.html#module-route_distances.lstm.utils">route_distances.lstm.utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="route_distances.lstm.html#module-route_distances.lstm">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="route_distances.ted.html">route_distances.ted package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="route_distances.ted.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="route_distances.ted.html#module-route_distances.ted.distances">route_distances.ted.distances module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="route_distances.ted.html#module-route_distances.ted.reactiontree">route_distances.ted.reactiontree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="route_distances.ted.html#module-route_distances.ted.utils">route_distances.ted.utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="route_distances.ted.html#module-route_distances.ted">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="route_distances.tools.html">route_distances.tools package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="route_distances.tools.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="route_distances.tools.html#module-route_distances.tools.cluster_aizynth_output">route_distances.tools.cluster_aizynth_output module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="route_distances.tools.html#module-route_distances.tools.prepare_aizynthfinder_output">route_distances.tools.prepare_aizynthfinder_output module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="route_distances.tools.html#module-route_distances.tools.train_lstm_model">route_distances.tools.train_lstm_model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="route_distances.tools.html#module-route_distances.tools">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-route_distances.clustering">
+<span id="route-distances-clustering-module"></span><h2>route_distances.clustering module<a class="headerlink" href="#module-route_distances.clustering" title="Permalink to this headline">¶</a></h2>
+<p>Module containing a class to help out with clustering</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="route_distances.clustering.ClusteringHelper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">route_distances.clustering.</span></span><span class="sig-name descname"><span class="pre">ClusteringHelper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distances</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#route_distances.clustering.ClusteringHelper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A helper class to perform clustering of items
+based on a pre-computed distance matrix.</p>
+<p>The clustering is the agglomerative clustering
+algorithm implemented in Scikit-learn.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>distances</strong> (<em>np.ndarray</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="route_distances.clustering.ClusteringHelper.labels">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">labels</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#route_distances.clustering.ClusteringHelper.labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the cluster labels</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="route_distances.clustering.ClusteringHelper.fixed_clustering">
+<span class="sig-name descname"><span class="pre">fixed_clustering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#route_distances.clustering.ClusteringHelper.fixed_clustering" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a fixed number of clusters.</p>
+<p>Additional arguments to the clustering algorithm
+can be passed in as key-word arguments</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_clusters</strong> (<em>int</em>) – the desired number of clusters</p></li>
+<li><p><strong>kwargs</strong> (<em>Any</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the cluster index for each observation</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="route_distances.clustering.ClusteringHelper.linkage_matrix">
+<span class="sig-name descname"><span class="pre">linkage_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#route_distances.clustering.ClusteringHelper.linkage_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the linkage matrix.</p>
+<p>Additional arguments to the clustering algorithm
+can be passed in as key-word arguments</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the linkage matrix</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>kwargs</strong> (<em>Any</em>) – </p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="route_distances.clustering.ClusteringHelper.optimize">
+<span class="sig-name descname"><span class="pre">optimize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#route_distances.clustering.ClusteringHelper.optimize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Optimize the number of cluster based  Silhouette metric.</p>
+<p>Additional arguments to the clustering algorithm
+can be passed in as key-word arguments</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>max_clusters</strong> (<em>int</em>) – the maximum number of clusters to consider</p></li>
+<li><p><strong>kwargs</strong> (<em>Any</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the cluster index for each observation</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="route_distances.clustering.ClusteringHelper.cluster">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cluster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distances</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#route_distances.clustering.ClusteringHelper.cluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cluster items based on a pre-computed distance matrix using a hierarchical clustering.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>distances</strong> (<em>numpy.ndarray</em>) – the distance matrix</p></li>
+<li><p><strong>n_clusters</strong> (<em>int</em>) – the desired number of clusters</p></li>
+<li><p><strong>kwargs</strong> (<em>Any</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the cluster index for each observation</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-route_distances.route_distances">
+<span id="route-distances-route-distances-module"></span><h2>route_distances.route_distances module<a class="headerlink" href="#module-route_distances.route_distances" title="Permalink to this headline">¶</a></h2>
+<p>Module containing a factory function for making predictions of route distances</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="route_distances.route_distances.route_distances_calculator">
+<span class="sig-prename descclassname"><span class="pre">route_distances.route_distances.</span></span><span class="sig-name descname"><span class="pre">route_distances_calculator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#route_distances.route_distances.route_distances_calculator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a callable that given a list routes as dictionaries
+calculate the squared distance matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>str</em>) – </p></li>
+<li><p><strong>kwargs</strong> (<em>Any</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><em>Callable</em>[[<em>List</em>[<em>Dict</em>[str, <em>Any</em>]]], numpy.ndarray]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-route_distances.validation">
+<span id="route-distances-validation-module"></span><h2>route_distances.validation module<a class="headerlink" href="#module-route_distances.validation" title="Permalink to this headline">¶</a></h2>
+<p>Module containing routes to validate AiZynthFinder-like input dictionaries</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="route_distances.validation.MoleculeNode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">route_distances.validation.</span></span><span class="sig-name descname"><span class="pre">MoleculeNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smiles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">children</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#route_distances.validation.MoleculeNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydantic.main.BaseModel</span></code></p>
+<p>Node representing a molecule</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>smiles</strong> (<em>str</em>) – </p></li>
+<li><p><strong>type</strong> (<em>route_distances.validation.ConstrainedStrValue</em>) – </p></li>
+<li><p><strong>children</strong> (<em>Optional</em><em>[</em><em>types.ConstrainedListValue</em><em>[</em><a class="reference internal" href="#route_distances.validation.ReactionNode" title="route_distances.validation.ReactionNode"><em>route_distances.validation.ReactionNode</em></a><em>]</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="route_distances.validation.MoleculeNode.smiles">
+<span class="sig-name descname"><span class="pre">smiles</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#route_distances.validation.MoleculeNode.smiles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="route_distances.validation.MoleculeNode.type">
+<span class="sig-name descname"><span class="pre">type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">route_distances.validation.ConstrainedStrValue</span></em><a class="headerlink" href="#route_distances.validation.MoleculeNode.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="route_distances.validation.MoleculeNode.children">
+<span class="sig-name descname"><span class="pre">children</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">types.ConstrainedListValue</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#route_distances.validation.ReactionNode" title="route_distances.validation.ReactionNode"><span class="pre">route_distances.validation.ReactionNode</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#route_distances.validation.MoleculeNode.children" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="route_distances.validation.ReactionNode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">route_distances.validation.</span></span><span class="sig-name descname"><span class="pre">ReactionNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">children</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#route_distances.validation.ReactionNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydantic.main.BaseModel</span></code></p>
+<p>Node representing a reaction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> (<em>route_distances.validation.ConstrainedStrValue</em>) – </p></li>
+<li><p><strong>children</strong> (<em>List</em><em>[</em><a class="reference internal" href="#route_distances.validation.MoleculeNode" title="route_distances.validation.MoleculeNode"><em>route_distances.validation.MoleculeNode</em></a><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="route_distances.validation.ReactionNode.type">
+<span class="sig-name descname"><span class="pre">type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">route_distances.validation.ConstrainedStrValue</span></em><a class="headerlink" href="#route_distances.validation.ReactionNode.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="route_distances.validation.ReactionNode.children">
+<span class="sig-name descname"><span class="pre">children</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#route_distances.validation.MoleculeNode" title="route_distances.validation.MoleculeNode"><span class="pre">route_distances.validation.MoleculeNode</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#route_distances.validation.ReactionNode.children" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="route_distances.validation.validate_dict">
+<span class="sig-prename descclassname"><span class="pre">route_distances.validation.</span></span><span class="sig-name descname"><span class="pre">validate_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dict_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#route_distances.validation.validate_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that the route dictionary is a valid structure</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dict</strong> – the route as dictionary</p></li>
+<li><p><strong>dict_</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-route_distances">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-route_distances" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2021-2022, Molecular AI group.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.5.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/route_distances.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
