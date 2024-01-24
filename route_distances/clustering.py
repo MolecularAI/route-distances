@@ -41,7 +41,7 @@ class ClusteringHelper:
         """
         if "linkage" not in kwargs:
             kwargs["linkage"] = "single"
-        kwargs["affinity"] = "precomputed"
+        kwargs["metric"] = "precomputed"
         kwargs["n_clusters"] = n_clusters
         model = AgglomerativeClustering(**kwargs)
         model.fit(self._distances)
@@ -59,7 +59,7 @@ class ClusteringHelper:
         """
         if "linkage" not in kwargs:
             kwargs["linkage"] = "single"
-        kwargs["affinity"] = "precomputed"
+        kwargs["metric"] = "precomputed"
         kwargs["n_clusters"] = None
         kwargs["distance_threshold"] = 0.0
         model = AgglomerativeClustering(**kwargs)
