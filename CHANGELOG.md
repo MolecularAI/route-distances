@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## Version 1.2.0 - 2024-01-24
+
+### Trivial changes
+
+- Rename deprecated `affinity` keyword in clustering to `metric`.
+- Update pytorch-lightning version to >=1.6.0 and <1.8.4
+
 ## Version 1.1.1 - 2023-09-15
 
 ### Trivial changes
