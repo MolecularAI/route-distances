@@ -4,9 +4,9 @@ import sys
 sys.path.insert(0, os.path.abspath("."))
 
 project = "route-distances"
-copyright = "2021-2022, Molecular AI group"
+copyright = "2021-2024, Molecular AI group"
 author = "Molecular AI group"
-release = "1.2.0"
+release = "1.2.1"
 
 extensions = [
     "sphinx.ext.autodoc",
