@@ -17,5 +17,5 @@ def test_validate_only_mols():
         "type": "mol",
         "children": [{"smiles": "CCC", "type": "mol"}],
     }
-    with pytest.raises(ValueError, match="string does not match regex"):
+    with pytest.raises(ValueError, match="String should match pattern"):
         validate_dict(dict_)

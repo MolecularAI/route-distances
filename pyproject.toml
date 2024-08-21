@@ -23,10 +23,12 @@ optuna = "^2.5.0"
 tables = "^3.6.0"
 apted = "^1.0.3"
 scikit-learn = ">0.21.0"
-pydantic = "^1.8.0"
+pydantic = "^2.8.2"
 python-dateutil = "^2.8.2"
 rdkit = "^2022.3.3"
 pandas = "^1.5.0"
+numpy = "^1.0.0"
+numexpr = "<=2.10.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.2"
