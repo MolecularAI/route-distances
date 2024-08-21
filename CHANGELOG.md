@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## Version 1.2.1 - 2024-08-21
+
+### Trivial changes
+
+- Update pydantic version
+
+
 ## Version 1.2.0 - 2024-01-24
 
 ### Trivial changes
