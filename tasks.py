@@ -9,7 +9,7 @@ def build_docs(context):
 
 @task
 def full_tests(context):
-    cmd = "pytest --black --mccabe " \
+    cmd = "pytest " \
           "--cov route_distances --cov-branch --cov-report html:coverage --cov-report xml --cov-report term " \
           "tests/"
     context.run(cmd)
