@@ -6,7 +6,7 @@ sys.path.insert(0, os.path.abspath("."))
 project = "route-distances"
 copyright = "2021-2024, Molecular AI group"
 author = "Molecular AI group"
-release = "1.2.2"
+release = "1.2.3"
 
 extensions = [
     "sphinx.ext.autodoc",
