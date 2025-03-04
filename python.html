@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Python interface &#8212; route-distances 1.2.3 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=a66d8bb5" />
+    <script src="_static/documentation_options.js?v=590429e0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="route_distances package" href="route_distances.html" />
+    <link rel="prev" title="route-distances documentation" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">route-distances</a></h1>
+
+
+
+<p class="blurb">Routines for calculating route-distances</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#input-format">Input format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#calculating-ted">Calculating TED</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="route_distances.html">route_distances package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">route-distances documentation</a></li>
+      <li>Next: <a href="route_distances.html" title="next chapter">route_distances package</a></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="python-interface">
+<h1>Python interface<a class="headerlink" href="#python-interface" title="Link to this heading">¶</a></h1>
+<p>This page gives a quick overview of how to use the Python classes and methods to compute
+distances between routes.</p>
+<section id="input-format">
+<h2>Input format<a class="headerlink" href="#input-format" title="Link to this heading">¶</a></h2>
+<p>The routes or reaction tree are input as dictionaries that can be loaded from e.g. a JSON file.
+The structure of the dictionary follows the output format used by AiZynthFinder, but only a small
+number of fields are necessary. The structure is checked by the code, and if the validation fails,
+an exception will be raised.</p>
+<p>The structure definition and validation code can be found in the <cite>route_distance.validation</cite> module.</p>
+<p>The input structure should be a the type <cite>MoleculeNode</cite> which is a dictionary with the following
+fields</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>smiles - the SMILES string of the molecule represented by the node</p></li>
+<li><p>type - should be the string “mol”</p></li>
+<li><p>children - an <em>optional</em> list, containing at most one dictionary of type <cite>ReactionNode</cite></p></li>
+</ul>
+</div></blockquote>
+<p>The <cite>ReactionNode</cite> type is a dictionary with the following fields</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>type - should be the string “reaction”</p></li>
+<li><p>children - a list of dictionaries of type <cite>MoleculeNode</cite></p></li>
+</ul>
+</div></blockquote>
+<p>It is easy to realize that this is a recursive definition. All extra fields in the dictionaries are ignored.
+And example dictionary is shown below</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;smiles&quot;</span><span class="p">:</span> <span class="s2">&quot;CCCCOc1ccc(CC(=O)N(C)O)cc1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;mol&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;children&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;reaction&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;children&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;smiles&quot;</span><span class="p">:</span> <span class="s2">&quot;CCCCOc1ccc(CC(=O)Cl)cc1&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;mol&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;smiles&quot;</span><span class="p">:</span> <span class="s2">&quot;CNO&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;mol&quot;</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="calculating-ted">
+<h2>Calculating TED<a class="headerlink" href="#calculating-ted" title="Link to this heading">¶</a></h2>
+<p>To compute the distance between two routes, we will first load them from a JSON file</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;my_routes.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fileobj</span><span class="p">:</span>
+    <span class="n">routes</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fileobj</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then we will create two wrapper objects that will take care of the calculations</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">route_distances.ted.reactiontree</span><span class="w"> </span><span class="kn">import</span> <span class="n">ReactionTreeWrapper</span>
+<span class="n">wrapper1</span> <span class="o">=</span> <span class="n">ReactionTreeWrapper</span><span class="p">(</span><span class="n">routes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">content</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">)</span>
+<span class="n">wrapper2</span> <span class="o">=</span> <span class="n">ReactionTreeWrapper</span><span class="p">(</span><span class="n">routes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">content</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The argument <cite>content</cite> can be <cite>molecules</cite>, <cite>reactions</cite> or <cite>both</cite> and specify what nodes are included
+in the calculation.</p>
+<p>To calculate the distance between these two routes, we simple do</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">wrapper1</span><span class="o">.</span><span class="n">distance_to</span><span class="p">(</span><span class="n">wrapper2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If we have many routes, a distance matrix can be calculate using</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">route_distances.ted.distances</span><span class="w"> </span><span class="kn">import</span> <span class="n">distance_matrix</span>
+<span class="n">distance_matrix</span><span class="p">(</span><span class="n">routes</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The docstrings of all modules, classes and methods can be consulted <a class="reference internal" href="route_distances.html"><span class="doc">here</span></a></p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2021-2024, Molecular AI group.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="_sources/python.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

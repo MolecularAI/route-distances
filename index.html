@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>route-distances documentation &#8212; route-distances 1.2.3 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=a66d8bb5" />
+    <script src="_static/documentation_options.js?v=590429e0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Python interface" href="python.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">route-distances</a></h1>
+
+
+
+<p class="blurb">Routines for calculating route-distances</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Python interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="route_distances.html">route_distances package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="python.html" title="next chapter">Python interface</a></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="route-distances-documentation">
+<h1>route-distances documentation<a class="headerlink" href="#route-distances-documentation" title="Link to this heading">¶</a></h1>
+<p>route-distances contains routines and tools to compute distances between synthesis routes and to cluster them.</p>
+<p>This is a project mostly targeting developers and researchers, not so much end-users.</p>
+<p>There is one command line tool to process AiZynthFinder output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cluster_aizynth_output<span class="w"> </span>--files<span class="w"> </span>finder_output1.hdf5<span class="w"> </span>finder_output2.hdf5<span class="w"> </span>--output<span class="w"> </span>finder_distances.hdf5
+</pre></div>
+</div>
+<p>This will add a column to table in the merged <code class="docutils literal notranslate"><span class="pre">hdf5</span></code> file called <code class="docutils literal notranslate"><span class="pre">distance_matrix</span></code> with the tree edit distances, and
+another column called <code class="docutils literal notranslate"><span class="pre">distances_time</span></code> with the timings of the calculations.</p>
+<p>To cluster the routes as well add the <code class="docutils literal notranslate"><span class="pre">--ncluster</span></code> flag</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cluster_aizynth_output<span class="w"> </span>--files<span class="w"> </span>finder_output1.hdf5<span class="w"> </span>finder_output2.hdf5<span class="w"> </span>--output<span class="w"> </span>finder_distances.hdf5<span class="w"> </span>--nclusters<span class="w"> </span><span class="m">0</span>
+</pre></div>
+</div>
+<p>Giving 0 as the number of clusters will trigger automatic optimization of the number of clusters.
+Two columns will be added to the table: <code class="docutils literal notranslate"><span class="pre">cluster_labels</span></code> and <code class="docutils literal notranslate"><span class="pre">cluster_time</span></code> holding the
+cluster labels for each route and the timings of the calculation, respectively.</p>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2021-2024, Molecular AI group.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

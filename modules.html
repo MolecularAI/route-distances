@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>route_distances &#8212; route-distances 1.2.3 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=a66d8bb5" />
+    <script src="_static/documentation_options.js?v=590429e0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">route-distances</a></h1>
+
+
+
+<p class="blurb">Routines for calculating route-distances</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Python interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="route_distances.html">route_distances package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="route-distances">
+<h1>route_distances<a class="headerlink" href="#route-distances" title="Link to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="route_distances.html">route_distances package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="route_distances.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="route_distances.lstm.html">route_distances.lstm package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.lstm.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.lstm.html#module-route_distances.lstm.data">route_distances.lstm.data module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.lstm.html#module-route_distances.lstm.defaults">route_distances.lstm.defaults module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.lstm.html#module-route_distances.lstm.features">route_distances.lstm.features module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.lstm.html#module-route_distances.lstm.inference">route_distances.lstm.inference module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.lstm.html#module-route_distances.lstm.models">route_distances.lstm.models module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.lstm.html#module-route_distances.lstm.optim">route_distances.lstm.optim module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.lstm.html#module-route_distances.lstm.utils">route_distances.lstm.utils module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.lstm.html#module-route_distances.lstm">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="route_distances.ted.html">route_distances.ted package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.ted.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.ted.html#module-route_distances.ted.distances">route_distances.ted.distances module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.ted.html#module-route_distances.ted.reactiontree">route_distances.ted.reactiontree module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.ted.html#module-route_distances.ted.utils">route_distances.ted.utils module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.ted.html#module-route_distances.ted">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="route_distances.tools.html">route_distances.tools package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.tools.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.tools.html#module-route_distances.tools.cluster_aizynth_output">route_distances.tools.cluster_aizynth_output module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.tools.html#module-route_distances.tools.prepare_aizynthfinder_output">route_distances.tools.prepare_aizynthfinder_output module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.tools.html#module-route_distances.tools.train_lstm_model">route_distances.tools.train_lstm_model module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.tools.html#module-route_distances.tools">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="route_distances.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="route_distances.html#module-route_distances.clustering">route_distances.clustering module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="route_distances.html#route_distances.clustering.ClusteringHelper"><code class="docutils literal notranslate"><span class="pre">ClusteringHelper</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.html#route_distances.clustering.ClusteringHelper.labels"><code class="docutils literal notranslate"><span class="pre">ClusteringHelper.labels</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.html#route_distances.clustering.ClusteringHelper.fixed_clustering"><code class="docutils literal notranslate"><span class="pre">ClusteringHelper.fixed_clustering()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.html#route_distances.clustering.ClusteringHelper.linkage_matrix"><code class="docutils literal notranslate"><span class="pre">ClusteringHelper.linkage_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.html#route_distances.clustering.ClusteringHelper.optimize"><code class="docutils literal notranslate"><span class="pre">ClusteringHelper.optimize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.html#route_distances.clustering.ClusteringHelper.cluster"><code class="docutils literal notranslate"><span class="pre">ClusteringHelper.cluster()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="route_distances.html#module-route_distances.route_distances">route_distances.route_distances module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="route_distances.html#route_distances.route_distances.route_distances_calculator"><code class="docutils literal notranslate"><span class="pre">route_distances_calculator()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="route_distances.html#module-route_distances.validation">route_distances.validation module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="route_distances.html#route_distances.validation.ReactionNode"><code class="docutils literal notranslate"><span class="pre">ReactionNode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.html#route_distances.validation.ReactionNode.type"><code class="docutils literal notranslate"><span class="pre">ReactionNode.type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.html#route_distances.validation.ReactionNode.children"><code class="docutils literal notranslate"><span class="pre">ReactionNode.children</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.html#route_distances.validation.ReactionNode.model_config"><code class="docutils literal notranslate"><span class="pre">ReactionNode.model_config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="route_distances.html#route_distances.validation.MoleculeNode"><code class="docutils literal notranslate"><span class="pre">MoleculeNode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.html#route_distances.validation.MoleculeNode.smiles"><code class="docutils literal notranslate"><span class="pre">MoleculeNode.smiles</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.html#route_distances.validation.MoleculeNode.type"><code class="docutils literal notranslate"><span class="pre">MoleculeNode.type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.html#route_distances.validation.MoleculeNode.children"><code class="docutils literal notranslate"><span class="pre">MoleculeNode.children</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="route_distances.html#route_distances.validation.MoleculeNode.model_config"><code class="docutils literal notranslate"><span class="pre">MoleculeNode.model_config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="route_distances.html#route_distances.validation.validate_dict"><code class="docutils literal notranslate"><span class="pre">validate_dict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="route_distances.html#module-route_distances">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2021-2024, Molecular AI group.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="_sources/modules.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

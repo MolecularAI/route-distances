@@ -1,0 +1,37 @@
+route\_distances.ted package
+============================
+
+Submodules
+----------
+
+route\_distances.ted.distances module
+-------------------------------------
+
+.. automodule:: route_distances.ted.distances
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+route\_distances.ted.reactiontree module
+----------------------------------------
+
+.. automodule:: route_distances.ted.reactiontree
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+route\_distances.ted.utils module
+---------------------------------
+
+.. automodule:: route_distances.ted.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: route_distances.ted
+   :members:
+   :undoc-members:
+   :show-inheritance:
