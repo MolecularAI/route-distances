@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## Version 1.2.4 - 2025-04-07
+
+### Trivial changes
+
+- Update dependencies version
+
 ## Version 1.2.3 - 2025-03-04
 
 ### Trivial changes
