@@ -1,3 +1,5 @@
+This repository has been replaced by [AiZynthModels](https://github.com/MolecularAI/aizynthmodels). Among other things, AiZynthModels includes an updated and refactored route distance LSTM model.
+
 # route-distances
 
 [![License](https://img.shields.io/github/license/MolecularAI/route-distances)](https://github.com/MolecularAI/route-distances/blob/master/LICENSE)
